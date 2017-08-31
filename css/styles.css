@@ -1,0 +1,107 @@
+html{
+  background-color: white;
+}
+#gameboard{
+  margin:auto;;
+
+}
+
+#green{
+  position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 182.14285714285714px solid;
+    border-color:#0b7000;
+    border-bottom: none;
+    border-right: none;
+    border-top-left-radius: 182.14285714285714px;
+    left: 32.14285714285714px;
+    top: 32.14285714285714px;
+
+}
+#green:active{
+  border-color:lime;
+}
+#red{
+  position: absolute;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      line-height: 0;
+      border: 182.14285714285714px solid;
+      border-color: #c30800;
+      border-bottom: none;
+      border-left: none;
+      border-top-right-radius: 182.14285714285714px;
+      left: 235.7142857142857px;
+      top: 32.14285714285714px;
+}
+#red:active{
+  border-color:#ff3d0d;
+}
+#yellow{
+  position: absolute;
+     display: inline-block;
+     width: 0;
+     height: 0;
+     line-height: 0;
+     border: 182.14285714285714px solid;
+     border-color:#c3b400;
+     border-top: none;
+     border-right: none;
+     border-bottom-left-radius: 182.14285714285714px;
+     left: 32.14285714285714px;
+     top: 235.7142857142857px;
+}
+#yellow:active{
+  border-color:yellow;
+}
+#blue{
+  position: absolute;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      line-height: 0;
+      border: 182.14285714285714px solid;
+      border-color:#196d85;
+      border-top: none;
+      border-left: none;
+      border-bottom-right-radius: 182.14285714285714px;
+      left: 235.7142857142857px;
+      top: 235.7142857142857px;
+}
+#blue:active{
+  border-color:blue;
+}
+#inner-circle{
+  position: absolute;
+z-index: 3;
+     display: inline-block;
+     width: 0;
+     height: 0;
+     line-height: 0;
+     border: 53.57142857142857px solid #222222;
+     border-radius: 53.57142857142857px;
+     left: 171.42857142857142px;
+     top: 171.42857142857142px;
+}
+
+#outer-circle{
+  position: absolute;
+  z-index:-1;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      line-height: 0;
+
+    border: 224.99999999999997px solid #222222;
+      border-radius: 224.99999999999997px;
+      left: 0px;
+      top: 0px;
+}
+
+.myClickState {
+  border-color: lime;
+}
