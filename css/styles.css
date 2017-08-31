@@ -1,9 +1,28 @@
 html{
   background-color: white;
 }
-#gameboard{
-  margin:auto;;
+.title{
+  text-align: center;
+  font-family: monospace;
+  color: black;
+  font-size: 30px;
+  background-color: gray;
 
+  border-radius:30px;
+  height:35px;
+  width: 200px;
+  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 10px solid #222222;
+
+}
+
+#gameboard{
+
+  width:450px;
+  position:relative;
+  margin:auto;
 }
 
 #green{
