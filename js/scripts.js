@@ -1,15 +1,20 @@
 $(document).ready(function(){
+//set variables
 var playerTouchesThisRound=[],
 patternToMatch=[],
 round=0,
 colorObject=["green","red","yellow","blue"];
+
+//cue up sounds
 var beep1 = new Audio('audio/beep1.mp3');
 var beep2 = new Audio('audio/beep2.mp3');
 var beep3 = new Audio('audio/beep3.mp3');
 var beep4 = new Audio('audio/beep4.mp3');
 var endbuzzer = new Audio('audio/endbuzzer.mp3');
+var startup = new Audio('audio/startup.wav');
 var active = {"status":false};
 
+//check for player mistakes
 var didTheyLose = function(thesequence){
 for (i=0;i<thesequence.length;i++){
   if (thesequence[i] != patternToMatch[i])
@@ -22,6 +27,7 @@ if (thesequence.length == patternToMatch.length)
   nextRound();}
 };
 
+//click listeners during player turn
 var playerTurn = function(){
   $('#green').unbind("click").click(function(){
   lightUp('green')
@@ -54,12 +60,14 @@ lightUp('blue');
 
 };
 
+//make tile flash when pressed or when played by CPU
 var lightUp = function(tile) {
  $('#'+tile).addClass('flash'+tile);
  window.setTimeout(function() {
  $('#'+tile).removeClass('flash'+tile);
  }, 300);
 
+//sounds play at tile press or play
 };
 var playSound= function(color){
 beep1.pause();
@@ -84,7 +92,9 @@ beep1.pause();
   }
 };
 
+//have cpu show player pattern to follow
 var showPattern = function(sequence) {
+//make player unable to click when it's not their turn
 $("#green").unbind();
 $("#yellow").unbind();
 $("#red").unbind();
@@ -104,12 +114,14 @@ playSound(sequence[i]);
         }
    }, 600);
    playerTouchesThisRound =[];
+
+//delays player turn until all tiles are flashed
    wait = (round+1) * 600
    console.log(wait);
    setTimeout(function(){ playerTurn();},wait);
 };
 
-
+//starts next round; adds one more tile to sequence
 var nextRound = function(){
 var nextColor = colorObject[Math.floor(Math.random()*4)];
 if (nextColor=="green")
@@ -123,6 +135,32 @@ if (nextColor=="blue")
 showPattern(patternToMatch);
 };
 
-nextRound();
+//starts the game
+var flashIt = function(tile) {
+ $('#'+tile).addClass('flash'+tile);
+ window.setTimeout(function() {
+ $('#'+tile).removeClass('flash'+tile);
+ }, 70);
+}
+ var animate = function(sequence) {
+  var i = 0;
+  var interval = setInterval(function() {
+  flashIt(sequence[i]);
+
+         i++;
+         if (i >= sequence.length) {
+  clearInterval(interval);
+         }
+    }, 100);
+}
+ function newRound() {
+   startup.play();
+ var sequence = ["green","red","blue","yellow","green","red","blue","yellow","green","red","blue","yellow","green","red","blue","yellow","green","red","blue","yellow"];
+ animate(sequence);
+}
+
+
+newRound();
+setTimeout(function(){nextRound();},2500);
 
 });
