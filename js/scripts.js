@@ -9,12 +9,46 @@ var beep3 = new Audio('audio/beep3.mp3');
 var beep4 = new Audio('audio/beep4.mp3');
 var endbuzzer = new Audio('audio/endbuzzer.mp3');
 
+var lightUp = function(tile) {
+ $('#'+tile).addClass('flash'+tile);
+ window.setTimeout(function() {
+ $('#'+tile).removeClass('flash'+tile);
+ }, 300);
 
+};
+var playSound= function(color){
+  if (color="green"){
+    beep1.play();
+  }
+  else if (color="red"){
+    beep2.play();
+  }
+  else if (color="yellow"){
+    beep3.play();
+    lightup('yellow');
+  }
+  else if (color="blue"){
+    beep4.play();
+  }
+};
 
+var showPattern = function(sequence) {
+ var i = 0;
+ var interval = setInterval(function() {
+playSound(sequence[i]);
+ lightUp(sequence[i]);
+
+        i++;
+        if (i >= sequence.length) {
+ clearInterval(interval);
+        }
+   }, 600);
+}
 
 
 var nextRound = function(){
 var nextColor = colorObject[Math.floor(Math.random()*4+1)];
+console.log(nextColor);
 if (nextColor=="green")
 {patternToMatch.push("green");}
 if (nextColor=="red")
@@ -23,28 +57,16 @@ if (nextColor=="yellow")
 {patternToMatch.push("yellow");}
 if (nextColor=="blue")
 {patternToMatch.push("blue");}
+showPattern(patternToMatch);
 };
 
-var showPattern = function(sequence){
-for (i=0;i<sequence.length;i++){
-  if (sequence[i]="green"){
-    beep1.play();
-    lightup('green');
-  }
-  else if (sequence[i]="red"){
-    beep2.play();
-    lightup('red');
-  }
-  else if (sequence[i]="yellow"){
-    beep3.play();
-    lightup('yellow');
-  }
-  else if (sequence[i]="blue"){
-    beep4.play();
-    lightup('blue');
-  }
-}
-};
+nextRound();
+
+
+
+
+
+
 
 
 var didTheyLose = function(sequence){
@@ -53,8 +75,7 @@ for (i=0;i<sequence.length;i++){
   {endbuzzer.play()}   //TODO
 }
 if (sequence.length == patternToMatch.length)
-{nextRound();
-showPattern(patternToMatch);}
+{nextRound();}
 };
 
 var playerTurn = function(){
@@ -92,13 +113,7 @@ lightup('blue');
   });
 };
 
-var lightup = function(tile) {
- $('#'+tile).addClass('flash'+tile);
- window.setTimeout(function() {
- $('#'+tile).removeClass('flash'+tile);
- }, 300);
 
-}
 
 
 });
