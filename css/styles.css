@@ -26,6 +26,7 @@ html{
 }
 
 #green{
+  cursor:pointer;
   position: absolute;
     display: inline-block;
     width: 0;
@@ -40,61 +41,65 @@ html{
     top: 32.14285714285714px;
 
 }
-#green:active{
-  border-color:lime;
+.flashgreen{
+  border-color:lime !important;
 }
 #red{
+  cursor:pointer;
   position: absolute;
       display: inline-block;
       width: 0;
       height: 0;
       line-height: 0;
       border: 182.14285714285714px solid;
-      border-color: #c30800;
+      border-color: #660800;
       border-bottom: none;
       border-left: none;
       border-top-right-radius: 182.14285714285714px;
       left: 235.7142857142857px;
       top: 32.14285714285714px;
 }
-#red:active{
-  border-color:#ff3d0d;
+.flashred{
+  border-color:#FF0A00 !important;
 }
 #yellow{
+  cursor:pointer;
   position: absolute;
      display: inline-block;
      width: 0;
      height: 0;
      line-height: 0;
      border: 182.14285714285714px solid;
-     border-color:#c3b400;
+     border-color:#999900;
      border-top: none;
      border-right: none;
      border-bottom-left-radius: 182.14285714285714px;
      left: 32.14285714285714px;
      top: 235.7142857142857px;
 }
-#yellow:active{
-  border-color:yellow;
+.flashyellow{
+  border-color:#FFFF00 !important;
 }
 #blue{
+cursor:pointer;
   position: absolute;
       display: inline-block;
       width: 0;
       height: 0;
       line-height: 0;
       border: 182.14285714285714px solid;
-      border-color:#196d85;
+      border-color:#113377;
       border-top: none;
       border-left: none;
       border-bottom-right-radius: 182.14285714285714px;
       left: 235.7142857142857px;
       top: 235.7142857142857px;
 }
-#blue:active{
-  border-color:blue;
+.flashblue{
+  border-color:#4488FF !important;
 }
 #inner-circle{
+cursor:pointer;
   position: absolute;
 z-index: 3;
      display: inline-block;
@@ -114,13 +119,9 @@ z-index: 3;
       width: 0;
       height: 0;
       line-height: 0;
-
+cursor:pointer;
     border: 224.99999999999997px solid #222222;
       border-radius: 224.99999999999997px;
       left: 0px;
       top: 0px;
-}
-
-.myClickState {
-  border-color: lime;
 }

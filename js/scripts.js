@@ -14,7 +14,6 @@ var beep4 = new Audio('audio/beep4.mp3');
 
 var nextRound = function(){
 var nextColor = colorObject[Math.floor(Math.random()*4+1)];
-
 if (nextColor=="green")
 {patternToMatch.push("green");}
 if (nextColor=="red")
@@ -25,6 +24,8 @@ if (nextColor=="blue")
 {patternToMatch.push("blue");}
 };
 
+
+
 var didTheyLose = function(sequence){
 for (i=0;i<sequence.length;i++){
   if (sequence[i] != patternToMatch[i])
@@ -34,32 +35,40 @@ if (sequence.length == patternToMatch.length)
 {}    //TODO
 };
 
-var playerTurn = function(){
+//var playerTurn = function(){
   $('#green').click(function(){
+  lightup('green')
     beep1.play();
     console.log("working");
     playerTouchesThisRound.push("green");
   });
   $('#red').click(function(){
+lightup('red')
     beep2.play();
     console.log("working");
     playerTouchesThisRound.push("red");
   });
   $('#yellow').click(function(){
+lightup('yellow')
     beep3.play();
     console.log("working");
     playerTouchesThisRound.push("yellow");
   });
   $('#blue').click(function(){
+lightup('blue');
     beep4.play();
     console.log("working");
     playerTouchesThisRound.push("blue");
   });
+//};
 
+var lightup = function(tile) {
+ $('#'+tile).addClass('flash'+tile);
+ window.setTimeout(function() {
+ $('#'+tile).removeClass('flash'+tile);
+ }, 300);
 
-
-
-};
+}
 
 
 });
