@@ -8,20 +8,21 @@ var beep2 = new Audio('audio/beep2.mp3');
 var beep3 = new Audio('audio/beep3.mp3');
 var beep4 = new Audio('audio/beep4.mp3');
 var endbuzzer = new Audio('audio/endbuzzer.mp3');
+var active = {"status":false};
 
 var didTheyLose = function(thesequence){
 for (i=0;i<thesequence.length;i++){
   if (thesequence[i] != patternToMatch[i])
   {
+console.log(thesequence);
     endbuzzer.play()}   //TODO
 }
 if (thesequence.length == patternToMatch.length)
-{nextRound();}
+{active.status = false;
+  nextRound();}
 };
 
 var playerTurn = function(){
-var countit = 1
-countit ++
   $('#green').unbind("click").click(function(){
   lightUp('green')
 beep1.currentTime = 0;
@@ -50,6 +51,7 @@ lightUp('blue');
     playerTouchesThisRound.push("blue");
     didTheyLose(playerTouchesThisRound);
   });
+
 };
 
 var lightUp = function(tile) {
@@ -60,7 +62,6 @@ var lightUp = function(tile) {
 
 };
 var playSound= function(color){
-console.log(color);
 beep1.pause();
   beep1.currentTime = 0;
   beep2.pause();
@@ -70,24 +71,25 @@ beep1.pause();
   beep4.pause();
   beep4.currentTime = 0;
   if (color=="green"){
-console.log("green");
     beep1.play();
   }
   else if (color=="red"){
-    console.log("red");
     beep2.play();
   }
   else if (color=="yellow"){
-    console.log("yellow");
     beep3.play();
   }
   else if (color=="blue"){
-    console.log("blue");
     beep4.play();
   }
 };
 
 var showPattern = function(sequence) {
+$("#green").unbind();
+$("#yellow").unbind();
+$("#red").unbind();
+$("#blue").unbind();
+
 setTimeout(function() {
 round ++;
  $('.title').html("Round "+round);
@@ -102,8 +104,10 @@ playSound(sequence[i]);
         }
    }, 600);
    playerTouchesThisRound =[];
-   playerTurn();
-}
+   wait = (round+1) * 600
+   console.log(wait);
+   setTimeout(function(){ playerTurn();},wait);
+};
 
 
 var nextRound = function(){
@@ -120,19 +124,5 @@ showPattern(patternToMatch);
 };
 
 nextRound();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
