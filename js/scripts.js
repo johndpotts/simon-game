@@ -47,7 +47,7 @@ playSound(sequence[i]);
 
 
 var nextRound = function(){
-var nextColor = colorObject[Math.floor(Math.random()*4+1)];
+var nextColor = colorObject[Math.floor(Math.random()*4)];
 console.log(nextColor);
 if (nextColor=="green")
 {patternToMatch.push("green");}
