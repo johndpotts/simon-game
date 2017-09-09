@@ -38,24 +38,28 @@ if (sequence.length == patternToMatch.length)
 //var playerTurn = function(){
   $('#green').click(function(){
   lightup('green')
+beep1.currentTime = 0;
     beep1.play();
     console.log("working");
     playerTouchesThisRound.push("green");
   });
   $('#red').click(function(){
 lightup('red')
+    beep2.currentTime = 0;
     beep2.play();
     console.log("working");
     playerTouchesThisRound.push("red");
   });
   $('#yellow').click(function(){
-lightup('yellow')
+lightup('yellow');
+beep3.currentTime = 0;
     beep3.play();
     console.log("working");
     playerTouchesThisRound.push("yellow");
   });
   $('#blue').click(function(){
 lightup('blue');
+    beep4.currentTime = 0;
     beep4.play();
     console.log("working");
     playerTouchesThisRound.push("blue");
