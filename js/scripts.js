@@ -1,7 +1,7 @@
 $(document).ready(function(){
 var playerTouchesThisRound=[],
 patternToMatch=[],
-round=(patternToMatch.length+1),
+round=0,
 colorObject=["green","red","yellow","blue"];
 var beep1 = new Audio('audio/beep1.mp3');
 var beep2 = new Audio('audio/beep2.mp3');
@@ -88,9 +88,12 @@ console.log("green");
 };
 
 var showPattern = function(sequence) {
+setTimeout(function() {
+round ++;
+ $('.title').html("Round "+round);
+ }, 600);
  var i = 0;
  var interval = setInterval(function() {
-console.log(sequence[i]);
 playSound(sequence[i]);
  lightUp(sequence[i]);
         i++;
