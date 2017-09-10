@@ -19,8 +19,15 @@ var didTheyLose = function(thesequence){
 for (i=0;i<thesequence.length;i++){
   if (thesequence[i] != patternToMatch[i])
   {
-console.log(thesequence);
-    endbuzzer.play()}   //TODO
+    setTimeout(function() {
+
+     $('.title').html("Game Over");
+     }, 600);
+    $("#green").unbind();
+    $("#yellow").unbind();
+    $("#red").unbind();
+    $("#blue").unbind();
+    endbuzzer.play()} 
 }
 if (thesequence.length == patternToMatch.length)
 {active.status = false;
@@ -30,6 +37,7 @@ if (thesequence.length == patternToMatch.length)
 //click listeners during player turn
 var playerTurn = function(){
   $('#green').unbind("click").click(function(){
+  window.navigator.vibrate(200);
   lightUp('green')
 beep1.currentTime = 0;
     beep1.play();
@@ -37,6 +45,7 @@ beep1.currentTime = 0;
     didTheyLose(playerTouchesThisRound);
   });
   $('#red').unbind("click").click(function(){
+	  window.navigator.vibrate(200);
 lightUp('red')
     beep2.currentTime = 0;
     beep2.play();
@@ -44,6 +53,7 @@ lightUp('red')
     didTheyLose(playerTouchesThisRound);
   });
   $('#yellow').unbind("click").click(function(){
+	  window.navigator.vibrate(200);
 lightUp('yellow');
 beep3.currentTime = 0;
     beep3.play();
@@ -51,6 +61,7 @@ beep3.currentTime = 0;
     didTheyLose(playerTouchesThisRound);
   });
   $('#blue').unbind("click").click(function(){
+	  window.navigator.vibrate(200);
 lightUp('blue');
     beep4.currentTime = 0;
     beep4.play();
@@ -155,10 +166,11 @@ var flashIt = function(tile) {
 }
  function newRound() {
    startup.play();
- var sequence = ["green","red","blue","yellow","green","red","blue","yellow","green","red","blue","yellow","green","red","blue","yellow","green","red","blue","yellow"];
+ var sequence = ["green","red","blue","yellow","green","red","blue",
+"yellow","green","red","blue","yellow","green","red","blue","yellow",
+"green","red","blue","yellow"];
  animate(sequence);
 }
-
 
 newRound();
 setTimeout(function(){nextRound();},2500);
