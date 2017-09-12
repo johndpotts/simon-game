@@ -27,7 +27,7 @@ for (i=0;i<thesequence.length;i++){
     $("#yellow").unbind();
     $("#red").unbind();
     $("#blue").unbind();
-    endbuzzer.play()} 
+    endbuzzer.play()}
 }
 if (thesequence.length == patternToMatch.length)
 {active.status = false;
@@ -37,7 +37,7 @@ if (thesequence.length == patternToMatch.length)
 //click listeners during player turn
 var playerTurn = function(){
   $('#green').unbind("click").click(function(){
-  window.navigator.vibrate(200);
+  window.navigator.vibrate(20);
   lightUp('green')
 beep1.currentTime = 0;
     beep1.play();
@@ -45,7 +45,7 @@ beep1.currentTime = 0;
     didTheyLose(playerTouchesThisRound);
   });
   $('#red').unbind("click").click(function(){
-	  window.navigator.vibrate(200);
+	  window.navigator.vibrate(20);
 lightUp('red')
     beep2.currentTime = 0;
     beep2.play();
@@ -53,7 +53,7 @@ lightUp('red')
     didTheyLose(playerTouchesThisRound);
   });
   $('#yellow').unbind("click").click(function(){
-	  window.navigator.vibrate(200);
+	  window.navigator.vibrate(20);
 lightUp('yellow');
 beep3.currentTime = 0;
     beep3.play();
@@ -61,7 +61,7 @@ beep3.currentTime = 0;
     didTheyLose(playerTouchesThisRound);
   });
   $('#blue').unbind("click").click(function(){
-	  window.navigator.vibrate(200);
+	  window.navigator.vibrate(20);
 lightUp('blue');
     beep4.currentTime = 0;
     beep4.play();
