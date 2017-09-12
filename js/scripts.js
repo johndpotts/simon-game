@@ -1,18 +1,23 @@
+
+
 $(document).ready(function(){
+document.addEventListener("touchstart", function(){}, false);
+
 //set variables
 var playerTouchesThisRound=[],
 patternToMatch=[],
 round=0,
-colorObject=["green","red","yellow","blue"];
+colorObject=["green","red","yellow","blue"]
+highScore=0;
 
 //cue up sounds
-var beep1 = new Audio('audio/beep1.mp3');
-var beep2 = new Audio('audio/beep2.mp3');
-var beep3 = new Audio('audio/beep3.mp3');
-var beep4 = new Audio('audio/beep4.mp3');
-var endbuzzer = new Audio('audio/endbuzzer.mp3');
+var beep1 = new Audio('audio/beep1.wav');
+var beep2 = new Audio('audio/beep2.wav');
+var beep3 = new Audio('audio/beep3.wav');
+var beep4 = new Audio('audio/beep4.wav');
+var endbuzzer = new Audio('audio/wrong.wav');
 var startup = new Audio('audio/startup.wav');
-var active = {"status":false};
+var active = {"status":false, "gameover":false};
 
 //check for player mistakes
 var didTheyLose = function(thesequence){
@@ -27,9 +32,11 @@ for (i=0;i<thesequence.length;i++){
     $("#yellow").unbind();
     $("#red").unbind();
     $("#blue").unbind();
-    endbuzzer.play()}
+    endbuzzer.play();
+    active.gameover = true;
+  }
 }
-if (thesequence.length == patternToMatch.length)
+ if (thesequence.length == patternToMatch.length && active.gameover == false)
 {active.status = false;
   nextRound();}
 };
@@ -113,6 +120,8 @@ $("#blue").unbind();
 
 setTimeout(function() {
 round ++;
+if (highScore<round-1){highScore++;
+$('#scoreboard').html(highScore);}
  $('.title').html("Round "+round);
  }, 600);
  var i = 0;
