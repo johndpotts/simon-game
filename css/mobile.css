@@ -7,18 +7,7 @@ background: linear-gradient(to right, #FFFAFA, #D3D3D3); /* W3C, IE 10+/ Edge, F
 
 }
 
-.top-display{
-  text-align: center;
-  font-family: monospace;
-  color: lime;
-  font-size: 30px;
-  background-color:#333333;
-  height:65px;
-  width: 100%;
-  margin-bottom: 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 
 #gameboard{
@@ -26,6 +15,7 @@ background: linear-gradient(to right, #FFFAFA, #D3D3D3); /* W3C, IE 10+/ Edge, F
   width:300px;
   position:relative;
   margin:auto;
+  top:80px;
 }
 
 #green{
@@ -105,21 +95,81 @@ cursor:pointer;
 .flashblue{
   border-color:#4488FF !important;
 }
-#inner-circle{
-cursor:pointer;
-  position: absolute;
-z-index: 3;
-     display: inline-block;
-     width: 0;
-     height: 0;
-     line-height: 0;
-     border: 35px solid #222222;
-     border-radius: 35px;
-     left: 114px;
-     top: 114px;
+#top-circle{
+  z-index: 4;
+  background-color: #BBBBBB;
+  width: 100px;
+  height: 100px;
+  position:absolute;
+  display: inline-block;
+  left:100px;
+  top:100px;
+  border-radius:100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+#middle-circle{
+  z-index:3;
+  background-color: #222222;
+  width: 133px;
+  height: 133px;
+  position:absolute;
+  display: inline-block;
+  left:83px;
+  top:83px;
+  border-radius:100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
-#outer-circle{
+#start-button{
+ height: 16.65px;
+ width:16.65px;
+ border-radius:100%;
+ background-color:green;
+ border-right:2px solid black;
+ border-bottom: 2px solid black;
+ position:relative;
+ top:0px;
+ left:18.65px;
+ font-size: 14px;
+ font-family: monospace;
+ font-weight: bolder;
+ line-height:60px;
+ text-align: center;
+}
+#start-label{
+  position:relative;
+  top:0px;
+  left:13.32px;
+  font-size: 10px;
+  font-family: monospace;
+  font-weight: bolder;
+}
+ #title{
+   position:relative;
+   top:20px;
+   left:20px;
+   font-size: 20px;
+   font-family: monospace;
+   font-weight: bolder;
+ }
+ #scoreboard{
+   background-color:#331100;
+   color:#FF0A00;
+   border: 4px solid black;
+   border-radius: 5px;
+   height: 20px;
+   width:26.65px;
+   font-size: 18px;
+   font-family: monospace;
+   font-weight: bolder;
+   text-align:center;
+   line-height: 20px;
+   position: relative;
+   top: 26.65px;
+   left: 50px;
+ }
+
+#bottom-circle{
   position: absolute;
   z-index:-1;
       display: inline-block;
@@ -141,10 +191,11 @@ cursor:pointer;
 }
 
 
-footer{
-  margin:auto;
+#created-by{
+position:relative;
+top:375px;
   font-family: monospace;
   text-align: center;
   font-weight: bold;
-  margin-top: 400px;
+
 }

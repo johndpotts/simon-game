@@ -6,10 +6,6 @@ html{
 }
 
 
-header{
-  margin:auto;
-}
-
 #gameboard{
   width:450px;
   position:relative;
@@ -97,7 +93,7 @@ cursor:pointer;
 }
 
 
-#top-square{
+#top-circle{
   z-index: 4;
   background-color: #BBBBBB;
   width: 150px;
@@ -109,7 +105,7 @@ cursor:pointer;
   border-radius:100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
 }
-#back-square{
+#middle-circle{
   z-index:3;
   background-color: #222222;
   width: 200px;
@@ -170,7 +166,7 @@ cursor:pointer;
    left: 75px;
  }
 
-#outer-circle{
+#bottom-circle{
   position: absolute;
   z-index:-1;
       display: inline-block;
