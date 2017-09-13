@@ -8,7 +8,7 @@ var playerTouchesThisRound=[],
 patternToMatch=[],
 round=0,
 colorObject=["green","red","yellow","blue"]
-highScore=0;
+
 
 //cue up sounds
 var beep1 = new Audio('audio/beep1.wav');
@@ -32,6 +32,10 @@ for (i=0;i<thesequence.length;i++){
     $("#yellow").unbind();
     $("#red").unbind();
     $("#blue").unbind();
+    lightUp('green');
+      lightUp('blue');
+        lightUp('yellow');
+          lightUp('red');
     endbuzzer.play();
     active.gameover = true;
   }
@@ -120,9 +124,7 @@ $("#blue").unbind();
 
 setTimeout(function() {
 round ++;
-if (highScore<round-1){highScore++;
-$('#scoreboard').html(highScore);}
- $('.title').html("Round "+round);
+$('#scoreboard').html(round);
  }, 600);
  var i = 0;
  var interval = setInterval(function() {
@@ -137,7 +139,6 @@ playSound(sequence[i]);
 
 //delays player turn until all tiles are flashed
    wait = (round+1) * 600
-   console.log(wait);
    setTimeout(function(){ playerTurn();},wait);
 };
 
@@ -181,7 +182,16 @@ var flashIt = function(tile) {
  animate(sequence);
 }
 
-newRound();
-setTimeout(function(){nextRound();},2500);
+
+
+$('#start-button').click(function(){
+  playerTouchesThisRound=[],
+  patternToMatch=[],
+  round=0,
+  $('#scoreboard').html('-');
+  newRound();
+  active.gameover=false;
+  setTimeout(function(){nextRound();},2500);
+});
 
 });
