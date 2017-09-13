@@ -14,6 +14,7 @@ header{
   width:450px;
   position:relative;
   margin:auto;
+  top:40px;
 }
 
 #green{
@@ -190,10 +191,11 @@ cursor:pointer;
   -webkit-tap-highlight-color:transparent;
 }
 
-footer{
-  margin:auto;
+#created-by{
+position:relative;
+top:475px;
   font-family: monospace;
   text-align: center;
   font-weight: bold;
-  margin-top: 475px;
+
 }
