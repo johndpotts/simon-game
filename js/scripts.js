@@ -24,10 +24,7 @@ var didTheyLose = function(thesequence){
 for (i=0;i<thesequence.length;i++){
   if (thesequence[i] != patternToMatch[i])
   {
-    setTimeout(function() {
-
-     $('.title').html("Game Over");
-     }, 600);
+     window.navigator.vibrate(300);
     $("#green").unbind();
     $("#yellow").unbind();
     $("#red").unbind();
@@ -176,6 +173,7 @@ var flashIt = function(tile) {
 }
  function newRound() {
    startup.play();
+   window.navigator.vibrate(2500);
  var sequence = ["green","red","blue","yellow","green","red","blue",
 "yellow","green","red","blue","yellow","green","red","blue","yellow",
 "green","red","blue","yellow"];
